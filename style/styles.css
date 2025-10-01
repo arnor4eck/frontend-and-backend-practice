@@ -235,9 +235,11 @@ body {
     text-align: center;
 }
 
-.date, .author{
-    text-align: end;
-    font-size: 1em
+.date, .author {
+    text-align:left;
+    font-size: 12px;
+    color: #302d2e;
+    margin: 0px;
 }
 
 .post-content{
