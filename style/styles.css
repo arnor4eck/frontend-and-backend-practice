@@ -1,4 +1,4 @@
- /* ===== БАЗОВЫЕ СТИЛИ ===== */
+
 body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Современный шрифт для лучшей читаемости */ 
     margin: 0; /* Убираем стандартные отступы браузера */ 
@@ -7,16 +7,22 @@ body {
     min-height: 100vh; /* Минимальная высота равна высоте окна браузера */ 
 } 
 
-/* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
 .page-container { 
     max-width: 1200px; /* Максимальная ширина контента */ 
     margin: 0 auto; /* Центрирование контейнера по горизонтали */ 
     background: white; /* Белый фон для основного содержимого */ 
     min-height: 100vh; /* Минимальная высота равна высоте окна браузера */ 
     box-shadow: 0 0 30px rgba(0,0,0,0.1); /* Легкая тень вокруг всего контента */ 
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+
 } 
 
-/* ===== ШАПКА ===== */
 .header { 
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Темный градиентный фон */ 
     color: white; /* Белый цвет текста */ 
@@ -25,12 +31,14 @@ body {
     font-size: 28px; /* Размер шрифта */ 
     font-weight: 300; /* Легкое начертание шрифта */ 
     letter-spacing: 2px; /* Расстояние между буквами */ 
+    grid-area: header; /* привязка к области в grid`e */
 } 
 
-/* ===== НАВИГАЦИЯ ===== */
+
 .nav { 
     background: #2c3e50; /* Темно-синий фон навигации */ 
     padding: 20px 0; /* Вертикальные отступы */ 
+    grid-area: nav; /* привязка к области в grid`e */
 } 
 
 .nav-list { 
@@ -60,12 +68,12 @@ body {
     transform: translateY(-2px); /* Легкое поднятие элемента при наведении */ 
 } 
 
-/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
-.content { 
+main.content { 
     padding: 40px; /* Внутренние отступы контента */ 
     max-width: 900px; /* Максимальная ширина контента */ 
     margin: 0 auto; /* Центрирование контента */ 
     align-items: center; /* Выравнивание по центру по горизонтали */
+    grid-area: main; /* привязка к области в grid`e */
 } 
 
 /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
@@ -104,14 +112,12 @@ body {
     margin: 5px 0; /* Вертикальные отступы */ 
 } 
 
-/* ===== НАВЫКИ ===== */
-.skills-container { 
-    display: flex; /* Горизонтальное расположение навыков */ 
-    justify-content: center; /* Выравнивание по центру */ 
-    flex-wrap: wrap; /* Перенос на новую строку при необходимости */ 
-    gap: 15px; /* Расстояние между навыками */ 
-    margin: 30px 0; /* Вертикальные отступы */ 
-} 
+.skills-grid {
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, 1fr);
+    gap: 10px;
+}
+
 
 .skill-tag { 
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); /* Голубой градиентный фон */ 
@@ -122,6 +128,7 @@ body {
     font-size: 14px; /* Размер шрифта */ 
     box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3); /* Тень с голубым оттенком */ 
     transition: all 0.3s ease; /* Плавные анимации при изменении */ 
+    text-align: center;
 } 
 
 .skill-tag:hover { 
@@ -130,7 +137,14 @@ body {
 } 
 
 /* ===== ОПЫТ РАБОТЫ ===== */
- .experience-section { 
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.experience-section { 
     margin-top: 50px; /* Отступ сверху */ 
 } 
 
@@ -196,12 +210,17 @@ body {
     line-height: 1.8; /* Межстрочный интервал */ 
 } 
 
+.goods-grid{
+    display: grid;
+    gap: 50px;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+}
+
 .good {
     border: 3px solid black;
     background-image: linear-gradient(100deg, #00CED1, #4B0082);;
     border-radius: 15px;
-    padding: 20px;
-    margin: 20px 0;
+    padding: 60px;
     text-align: center;
     font-size: 16px;
     line-height: 1.8; 
@@ -229,6 +248,7 @@ body {
     text-align: center; /* Выравнивание по центру */ 
     padding: 30px; /* Внутренние отступы */ 
     margin-top: 50px; /* Отступ сверху */ 
+    grid-area: footer;
 } 
 
 .title{
@@ -244,4 +264,24 @@ body {
 
 .post-content{
     text-align: center
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-list {
+    flex-direction: column;
+    gap: 10px;
+    }
+
+    .skills-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+    grid-template-columns: 1fr;
+    }
+
+    main.content {
+    padding: 20px;
+    }
 }
