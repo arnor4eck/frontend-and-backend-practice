@@ -216,6 +216,83 @@ main.content {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
 }
 
+#contactModal{
+    border-radius: 25px;
+    border-width: 1px;
+    padding: 0;
+}
+
+
+.form-group{
+    font-size: 28px;
+}
+
+.required{
+    color: red
+}
+
+.modal-header{
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 2px; 
+}
+
+.form-group{
+    display: grid;
+    padding: 10px;
+}
+
+.form-group>label{
+    text-align: center;
+}
+
+.form-group>input,select,textarea{
+    font-size: 18px;
+}
+
+.form-close-button{
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-color: black;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-style: solid; 
+    text-align: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.form-close-button:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modal-actions{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Распределяет кнопки по краям */
+    align-items: center;
+}
+
+#send-button{
+    background-color: rgba(15, 230, 47, 0.8);
+}
+
+#cancel-button{
+    background-color: rgba(230, 15, 15, 0.8);
+}
+
+.modal-actions>button{
+    font-size: 20px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
 .good {
     border: 3px solid black;
     background-image: linear-gradient(100deg, #00CED1, #4B0082);;
