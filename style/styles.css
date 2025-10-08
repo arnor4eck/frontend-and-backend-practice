@@ -346,8 +346,15 @@ main.content {
 /* Адаптивность */
 @media (max-width: 768px) {
     .nav-list {
-    flex-direction: column;
-    gap: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .goods-grid{
+        display: inline;
+    }
+
+    .good{
+        margin: 20px;
     }
 
     .skills-grid {
