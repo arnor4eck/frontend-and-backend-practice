@@ -5,58 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крутая работа</title>
     <link rel="stylesheet" href="../style/styles.css">
-    <script src="../js/form-button.js"></script>
+    <script src="../js/theme.js"></script>
 </head>
 <body>
-    <div class="page-container">
+    <div class="page">
         <header class="header">
-            <h1>Хэдер</h1>
+            <h1 class="header__title">Контакты</h1>
         </header>
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-                <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="../pages/news.html">Новости</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="../pages/contacts.html">Контакты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="../pages/goods.html">Товары</a>
+                </li>
+                <li>
+                    <a class="nav__link nav__link--theme-change" onclick="changeTheme()">T</a>
+                </li>
             </ul>
         </nav>
-        <main class="content">
-            <section class="contacts-container">
-                <h2 class = "section-title">Контакты</h2>
-                <div class="contact-info">
+        <main class="main">
+            <section class="contacts">
+                <article class="contacts__item">
                     <p>Адрес электронной почты: aaaaa@bbb.ccc</p>
-                </div>
-                <div class="contact-info">
-                    <p>Физический адресс: г.Новоселки, ул. Рака, д.25142</p>
-                </div>
-                <button class="contact-button" onclick="contactModal.showModal()">Позвоните мне</button>
+                </article>
+                <article class="contacts__item contacts__item--even">
+                    <p>Физический адрес: ул. Пушкина, д. Колотушкина</p>
+                </article>
+                <article class="contacts__item">
+                    <p>Номер телефона: +7 123-456-78-90</p>
+                </article>
             </section>
+            <button onclick="contactModal.showModal()" class="btn btn--contact">Связаться с нами</button>
         </main>
         <footer class="footer">
-            <h2>Футер</h2>
+            <p class="footer__text">&copy; 2025 Крутая работа</p>
         </footer>
 
         <dialog id="contactModal">
-            <div class="modal-header">
-                <button class="form-close-button" onclick="contactModal.close()"><b>X</b></button>
+            <div class="modal__header">
+                <button class="btn btn--close--form" onclick="contactModal.close()"><b>X</b></button>
                 <h2>Форма обратной связи</h2>
             </div>
-            <div class="modal-content">
+            <div class="modal__content">
                 <form id="feedbackForm" method="dialog">
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="name">Имя<span class="required">*</span></label>
                         <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
                     </div>
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="phone">Телефон<span class="required">*</span></label>
                         <input type="tel" id="phone" name="phone" pattern="^\+7\d{10}$" placeholder="+7__________">
                     </div>
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="email">Email<span class="required">*</span></label>
                         <input type="email" id="email" name="email" required placeholder="example@mail.ru">
                     </div>
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="category">Категория обращения<span class="required">*</span></label>
                         <select id="category" name="category" required>
                             <option value="">Выберите категорию</option>
@@ -68,17 +80,18 @@
                             <option value="other">Другое</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form__group">
                         <label for="message">Текст обращения<span class="required">*</span></label>
                         <textarea id="message" name="message" required placeholder="Опишите вашу проблему или вопрос..."></textarea>
                     </div>
-                    <div class="modal-actions">
-                        <button type="reset" id="cancel-button" class="btn btnsecondary">Отмена</button>
-                        <button type="button" id="send-button" class="btn btn-primary" onclick="submitForm()">Отправить</button>
+                    <div class="modal__actions">
+                        <button type="reset" class="btn btn--cancel">Отмена</button>
+                        <button type="button" class="btn btn--submit" onclick="submitForm()">Отправить</button>
                     </div>
                 </form>
             </div>
         </dialog>
     </div>
 </body>
+<script src="../js/form-button.js"></script>
 </html>
