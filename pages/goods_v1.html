@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lamg = "ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крутая работа</title>
+    <link rel="stylesheet" href="../style/styles.css">
+    <script src="../js/theme.js"></script>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Новости</h1>
+        </header>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="../pages/news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="../pages/contacts.html">Контакты</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="../pages/goods.html">Товары</a>
+                </li>
+                <li>
+                    <a class="nav__link nav__link--theme-change" onclick="changeTheme()">T</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="main">
+            <div class="goods">
+                <article class="goods__item">
+                    <img src="../images/kirieshki.png" alt="фото товара" width="200" height="200">
+                    <h2>кириешки</h2>
+                    <h3 class="goods__item__price">цена: 69 тенге</h3>
+                </article>
+                <article class="goods__item">
+                    <img src="../images/hrusteam.png" alt="фото товара" width="200" height="200">
+                    <h2>хрустим</h2>
+                    <h3 class="goods__item__price">цена: 52 тенге</h3>
+                </article>
+                <article class="goods__item">
+                    <img src="../images/korochki.png" alt="фото товара" width="200" height="200">
+                    <h2>три корочки</h2>
+                    <h3 class="goods__item__price">цена: <span class="goods__item__price--sale--old--price">274 тенге</span> 20 тенге</h3>
+                </article>
+            </div>
+        </main>
+        <footer class="footer">
+            <p class="footer__text">&copy; 2025 Крутая работа</p>
+        </footer>
+    </div>
+</body>
+</html>
